@@ -1,0 +1,11 @@
+Video Player Adobe Air Native Extension (Android + iOS)
+
+
+Nov 04, 2014	>> V1.0: 	beginning of the journey!
+
+Nov 10, 2014	>> V2.0: 	Added online video playback for iOS
+		>> V2.0: 	Supports youtube playback
+
+Jan 27, 2015 	>> V2.1: 	added support for iOS 64-bit
+
+Apr 21, 2015 	>> V2.2: 	removed android-support-v4.jar dependency in the android side
