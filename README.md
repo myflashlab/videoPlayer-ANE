@@ -4,7 +4,7 @@ video player ANE supported on Android and iOS 64-bit let's you play video files 
 checkout here for the commercial version: http://myappsnippet.com/video-player-native-extension/
 you may like to see the ANE in action? check this out: https://github.com/myflashlab/videoPlayer-ANE/raw/master/FD/dist/exVideoPlayer-demo.apk
 
-NOTICE: the demo ANE works only after you hit the "OK" button in the dialog which opens. in your tests make sure that you are NOT calling other ANE methods prior to hitting the "OK" button.
+**NOTICE: the demo ANE works only after you hit the "OK" button in the dialog which opens. in your tests make sure that you are NOT calling other ANE methods prior to hitting the "OK" button.**
 
 # AS3 API:
 
