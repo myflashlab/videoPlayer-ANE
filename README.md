@@ -4,6 +4,8 @@ video player ANE supported on Android and iOS 64-bit let's you play video files 
 checkout here for the commercial version: http://myappsnippet.com/video-player-native-extension/
 you may like to see the ANE in action? check this out: https://github.com/myflashlab/videoPlayer-ANE/raw/master/FD/dist/exVideoPlayer-demo.apk
 
+NOTICE: the demo ANE works only after you hit the "OK" button in the dialog which opens. in your tests make sure that you are NOT calling other ANE methods prior to hitting the "OK" button.
+
 # AS3 API:
 
      import com.doitflash.air.extensions.player.VideoPlayer;
@@ -13,7 +15,7 @@ you may like to see the ANE in action? check this out: https://github.com/myflas
      
      // play from sdcard
      var vid:File = File.documentsDirectory.resolvePath("exVideoPlayer.mp4");
-     _ex.play(vid.nativePath, VideoType.ON_SD_CARD);
+     _ex.play(vid.nativePath, VideoType.ON_SD_CARD); // in demo ANE, this method works only if you have hit the "ok" button in the demo dialog.
      
      // or play online
      _ex.play("http://myflashlab.com/showcase/Bully_Scholarship_Edition_Trailer.mp4", VideoType.ON_LINE);
