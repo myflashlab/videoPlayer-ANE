@@ -1,5 +1,5 @@
-# Video Player ANE (Android+iOS)
-video player ANE supported on Android and iOS 64-bit let's you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
+# Video Player ANE V2.9 (Android+iOS)
+video player ANE supported on Android and iOS 64-bit lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
 
 checkout here for the commercial version: http://myappsnippet.com/video-player-native-extension/
 you may like to see the ANE in action? check this out: https://github.com/myflashlab/videoPlayer-ANE/raw/master/FD/dist/exVideoPlayer-demo.apk
@@ -10,8 +10,8 @@ you may like to see the ANE in action? check this out: https://github.com/myflas
 
 # AS3 API:
 ```actionscript
-import com.doitflash.air.extensions.player.VideoPlayer;
-import com.doitflash.air.extensions.player.VideoType;
+import com.myflashlab.air.extensions.player.VideoPlayer;
+import com.myflashlab.air.extensions.player.VideoType;
 
 var _ex:VideoPlayer = new VideoPlayer();
 

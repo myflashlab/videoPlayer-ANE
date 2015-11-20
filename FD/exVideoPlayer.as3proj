@@ -8,16 +8,15 @@
     <movie fps="30" />
     <movie width="480" />
     <movie height="762" />
-    <movie version="4" />
+    <movie version="17" />
     <movie minorVersion="0" />
     <movie platform="AIR Mobile" />
     <movie background="#FFFFFF" />
-    <movie preferredSDK="Flex 4.6.0, AIR 15.0;4.6.0, 15.0;" />
+    <movie preferredSDK="Flex 4.6.0, AIR 19.0;4.6.0, 19.0;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
-    <class path="lib\com.adobe.extensions.Vibration.ane" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -44,7 +43,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="-swf-version=26" />
+    <option additional="-swf-version=25" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>

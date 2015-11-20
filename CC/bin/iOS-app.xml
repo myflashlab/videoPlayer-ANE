@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<application xmlns="http://ns.adobe.com/air/application/3.6">
+  <id>com.doitflash.exVideoPlayer</id>
+  <versionNumber>2.9</versionNumber>
+  <supportedProfiles>mobileDevice</supportedProfiles>
+  <filename>exVideoPlayer</filename>
+  <name>Video Player</name>
+  
+  <iPhone> 
+	
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--https://developer.apple.com/library/ios/documentation/general/reference/infoplistkeyreference/Articles/iPhoneOSKeys.html-->
+	
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--http://help.adobe.com/en_US/air/build/WSfffb011ac560372f7e64a7f12cd2dd1867-8000.html-->
+    <InfoAdditions><![CDATA[
+  <key>UIStatusBarStyle</key>
+  <string>UIStatusBarStyleBlackOpaque</string>
+  <key>UIRequiresPersistentWiFi</key>
+  <string>NO</string>
+  <key>UIPrerenderedIcon</key>
+  <true/>
+  <key>UIApplicationExitsOnSuspend</key>
+  <false/>
+  <key>UIDeviceFamily</key>
+  <array>
+    <string>1</string>
+    <string>2</string>
+  </array>
+]]></InfoAdditions>
+    <requestedDisplayResolution>high</requestedDisplayResolution>
+  </iPhone>
+  
+  
+  <initialWindow>
+    <title>exVideoPlayer</title>
+    <content>iOS.swf</content>
+    <visible>true</visible>
+    <fullScreen>true</fullScreen>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<!--<autoOrients>false</autoOrients>-->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<!--<aspectRatio>landscape</aspectRatio>-->
+    <renderMode>gpu</renderMode>
+    <systemChrome>standard</systemChrome>
+    <aspectRatio>portrait</aspectRatio>
+    <autoOrients>false</autoOrients>
+  </initialWindow>
+  <icon>
+    <!-- <image48x48>icons/icon_48.png</image48x48>
+    <image57x57>icons/icon_57.png</image57x57>
+    <image72x72>icons/icon_72.png</image72x72>
+    <image114x114>icons/icon_114.png</image114x114>
+    <image512x512>icons/icon_512.png</image512x512> -->
+  </icon>
+  
+  
+  
+  
+  
+  
+  
+  <extensions>
+    <extensionID>com.myflashlab.air.extensions.videoPlayer</extensionID>
+  </extensions>
+</application>

@@ -9,3 +9,5 @@ Nov 10, 2014	>> V2.0: 	Added online video playback for iOS
 Jan 27, 2015 	>> V2.1: 	added support for iOS 64-bit
 
 Apr 21, 2015 	>> V2.2: 	removed android-support-v4.jar dependency in the android side
+
+Nov 03, 2015	>> V2.9:	doitflash devs merged into MyFLashLab Team.

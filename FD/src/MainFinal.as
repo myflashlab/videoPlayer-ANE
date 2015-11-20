@@ -24,8 +24,8 @@ package
 	import flash.filesystem.File;
 	import flash.net.URLVariables;
 	
-	import com.doitflash.air.extensions.player.VideoPlayer;
-	import com.doitflash.air.extensions.player.VideoType;
+	import com.myflashlab.air.extensions.player.VideoPlayer;
+	import com.myflashlab.air.extensions.player.VideoType;
 	import com.doitflash.text.modules.MySprite;
 	import com.doitflash.starling.utils.list.List;
 	import com.doitflash.consts.Direction;
@@ -165,7 +165,7 @@ package
 			function toPlayVideoIntentOnSdcard(e:MouseEvent):void
 			{
 				var address:String = dis.nativePath;
-				_ex.play(address, com.doitflash.air.extensions.player.VideoType.ON_SD_CARD);
+				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.ON_SD_CARD);
 			}
 			
 			// ----------------------
@@ -176,7 +176,7 @@ package
 			function toPlayVideoIntentOnline(e:MouseEvent):void
 			{
 				var address:String = "http://myflashlab.com/showcase/Bully_Scholarship_Edition_Trailer.mp4";
-				_ex.play(address, com.doitflash.air.extensions.player.VideoType.ON_LINE);
+				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.ON_LINE);
 			}
 			// ----------------------
 			
@@ -237,7 +237,7 @@ package
 				//_ytParser.addEventListener(YouTubeLinkParserEvent.VIDEO_HEADER_ERROR, onHeadersError);
 				//_ytParser.getHeaders(chosenVideo);
 				
-				_ex.play(chosenVideo, com.doitflash.air.extensions.player.VideoType.ON_LINE);
+				_ex.play(chosenVideo, com.myflashlab.air.extensions.player.VideoType.ON_LINE);
 			}
 			
 			// ----------------------
