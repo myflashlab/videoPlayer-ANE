@@ -149,6 +149,9 @@ package
 		
 		private function init():void
 		{
+			// required only if you are a member of the club
+			VideoPlayer.clubId = "paypal-address-you-used-to-join-the-club";
+			
 			// initialize the extension
 			_ex = new VideoPlayer();
 			
@@ -175,7 +178,7 @@ package
 			
 			function toPlayVideoIntentOnline(e:MouseEvent):void
 			{
-				var address:String = "http://myflashlab.com/showcase/Bully_Scholarship_Edition_Trailer.mp4";
+				var address:String = "http://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4";
 				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.ON_LINE);
 			}
 			// ----------------------
