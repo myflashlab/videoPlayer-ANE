@@ -1,19 +1,23 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Jan 20, 2016 - V2.9.2*
+* bypassing xCode 7.2 bug causing iOS conflict when compiling with AirSDK 20 without waiting on Adobe or Apple to fix the problem. This is a must have upgrade for your app to make sure you can compile multiple ANEs in your project with AirSDK 20 or greater. https://forums.adobe.com/thread/2055508 https://forums.adobe.com/message/8294948
 
-Nov 04, 2014	>> V1.0: 	beginning of the journey!
+*Dec 20, 2015 - V2.9.1*
+* minor bug fixes
 
-Nov 10, 2014	>> V2.0: 	Added online video playback for iOS
-		>> V2.0: 	Supports youtube playback
+*Nov 03, 2015 - V2.9*
+* doitflash devs merged into MyFLashLab Team
 
-Jan 27, 2015 	>> V2.1: 	added support for iOS 64-bit
+*Apr 21, 2015 - V2.2*
+* removed android-support-v4.jar dependency in the android side
 
-Apr 21, 2015 	>> V2.2: 	removed android-support-v4.jar dependency in the android side
+*Jan 27, 2015 - V2.1*
+* added support for iOS 64-bit
 
-Nov 03, 2015	>> V2.9:	doitflash devs merged into MyFLashLab Team.
-Dec 20, 2015 	>> V2.9.1: 	minor bug fixes
+*Nov 10, 2014 - V2.0*
+* Added online video playback for iOS
+* Supports youtube playback
 
-Jan 20, 2016 	>> V2.9.2: 	bypassing xCode 7.2 bug causing iOS conflict when compiling with AirSDK 20 without waiting on Adobe or Apple to fix the problem.
-							This is a must have upgrade for your app to make sure you can compile multiple ANEs in your project with AirSDK 20 or greater.
-							https://forums.adobe.com/thread/2055508
-							https://forums.adobe.com/message/8294948
+*Nov 04, 2014 - V1.0*
+* beginning of the journey!
