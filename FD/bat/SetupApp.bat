@@ -17,8 +17,8 @@ set AND_ICONS=icons/android
 set AND_SIGNING_OPTIONS=-storetype pkcs12 -keystore "%AND_CERT_FILE%" -storepass %AND_CERT_PASS%
 
 :: iOS packaging
-set IOS_DIST_CERT_FILE=cert\certificate_dis.p12
-set IOS_DEV_CERT_FILE=cert\certificate_dev.p12
+set IOS_DIST_CERT_FILE=cert\dis.p12
+set IOS_DEV_CERT_FILE=cert\dev.p12
 set IOS_DEV_CERT_PASS=pass
 set IOS_PROVISION_DEV=cert\comDoitflash.mobileprovision
 set IOS_PROVISION_DIST=cert\AdHocDoitflash.mobileprovision
@@ -45,7 +45,7 @@ set DIST_PATH=dist
 set DIST_NAME=theApp
 
 :: Debugging using a custom IP
-set DEBUG_IP=192.168.0.11
+set DEBUG_IP=192.168.0.24
 
 :validation
 findstr /C:"<id>%APP_ID%</id>" "%APP_XML%" > NUL

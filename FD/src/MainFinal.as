@@ -24,6 +24,7 @@ package
 	import flash.filesystem.File;
 	import flash.net.URLVariables;
 	
+	import com.myflashlab.air.extensions.nativePermissions.PermissionCheck;
 	import com.myflashlab.air.extensions.player.VideoPlayer;
 	import com.myflashlab.air.extensions.player.VideoType;
 	import com.doitflash.text.modules.MySprite;
@@ -47,6 +48,7 @@ package
 	public class MainFinal extends Sprite 
 	{
 		private var _ex:VideoPlayer;
+		private var _exPermissions:PermissionCheck = new PermissionCheck();
 		private var _ytParser:YouTubeLinkParser;
 		
 		private const BTN_WIDTH:Number = 150;
@@ -99,8 +101,7 @@ package
 			_list.vDirection = Direction.TOP_TO_BOTTOM;
 			_list.space = BTN_SPACE;
 			
-			init();
-			onResize();
+			checkPermissions();
 		}
 		
 		private function onInvoke(e:InvokeEvent):void
@@ -147,11 +148,35 @@ package
 			}
 		}
 		
+		private function checkPermissions():void
+		{
+			// first you need to make sure you have access to the Strorage if you are on Android?
+			var permissionState:int = _exPermissions.check(PermissionCheck.SOURCE_STORAGE);
+			
+			if (permissionState == PermissionCheck.PERMISSION_UNKNOWN || permissionState == PermissionCheck.PERMISSION_DENIED)
+			{
+				_exPermissions.request(PermissionCheck.SOURCE_STORAGE, onRequestResult);
+			}
+			else
+			{
+				init();
+			}
+			
+			function onRequestResult($state:int):void
+			{
+				if ($state != PermissionCheck.PERMISSION_GRANTED)
+				{
+					C.log("You did not allow the app the required permissions!");
+				}
+				else
+				{
+					init();
+				}
+			}
+		}
+		
 		private function init():void
 		{
-			// required only if you are a member of the club
-			VideoPlayer.clubId = "paypal-address-you-used-to-join-the-club";
-			
 			// initialize the extension
 			_ex = new VideoPlayer();
 			
@@ -258,7 +283,7 @@ package
 			// ----------------------
 			
 			
-			
+			onResize();
 		}
 		
 		
