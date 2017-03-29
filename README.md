@@ -1,4 +1,4 @@
-# Video Player ANE V3.0.0 (Android+iOS)
+# Video Player ANE V3.0.1 (Android+iOS)
 video player ANE supported on Android and iOS 64-bit lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
 
 # asdoc
@@ -40,9 +40,20 @@ FOR ANDROID:
 		<uses-sdk android:targetSdkVersion="23"/>
 		
 		
+
 		
-		
-		
+<!--
+FOR iOS:
+-->
+		<!-- Reqiered if you are trying to load an online video with 'http' address -->
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>NSAllowsArbitraryLoads</key>
+			<true/>
+		</dict>
+
+
+
 <!--
 Embedding the ANE:
 -->
@@ -61,7 +72,7 @@ Embedding the ANE:
 # Requirements
 * This ANE is dependent on **androidSupport.ane** and **overrideAir.ane**. Download them from [here](https://github.com/myflashlab/common-dependencies-ANE).
 * Android SDK 15 or higher
-* iOS 6.1 or higher
+* iOS 8.0 or higher
 
 # Permissions
 If you are targeting AIR 24 or higher, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
@@ -84,6 +95,11 @@ http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
 
 # Changelog
+*Mar 30, 2017 - V3.0.1*
+* Updated the ANE with the latest version overrideAir. Even if you are building for iOS, you need to include this dependency.
+* Min iOS version to support this ANE is 8.0 from now on.
+* Include ```NSAppTransportSecurity``` in the manifest if you are trying to play videos on **http** addresses on the iOS side.
+
 *Nov 08, 2016 - V3.0.0*
 * Optimized for Android manual permissions if you are targeting AIR SDK 24+
 * From now on, this ANE will depend on androidSupport.ane and overrideAir.ane on the Android side

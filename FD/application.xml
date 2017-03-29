@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/24.0">
   <id>com.doitflash.exVideoPlayer</id>
-  <versionNumber>2.9.2</versionNumber>
+  <versionNumber>3.0.1</versionNumber>
   <supportedProfiles>mobileDevice</supportedProfiles>
   <filename>exVideoPlayer</filename>
   <name>Video Player</name>
@@ -49,6 +49,14 @@
 		<true />
 		<key>UIApplicationExitsOnSuspend</key>
 		<false/>
+			
+		<!-- Reqiered if you are trying to load an online video with 'http' address -->
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>NSAllowsArbitraryLoads</key>
+			<true/>
+		</dict>
+			
 		<key>UIDeviceFamily</key>
 		<array>
 			<!-- iPhone support -->
@@ -89,7 +97,7 @@
 	
 	<extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
 	
-	<!-- The following dependency ANEs are only required when compiling for Android -->
+	<!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->
 	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
     <extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
 	
