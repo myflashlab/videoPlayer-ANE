@@ -1,5 +1,8 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Dec 15, 2017 - V3.0.3*
+* optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
+
 *Mar 30, 2017 - V3.0.1*
 * Updated the ANE with the latest version overrideAir. Even if you are building for iOS, you need to include this dependency.
 * Min iOS version to support this ANE is 8.0 from now on.

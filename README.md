@@ -1,17 +1,13 @@
-# Video Player ANE V3.0.1 (Android+iOS)
+# Video Player ANE V3.0.3 (Android+iOS)
 video player ANE supported on Android and iOS 64-bit lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
 
 # asdoc
 [find the latest asdoc for this ANE here.](http://myflashlab.github.io/asdoc/com/myflashlab/air/extensions/player/package-detail.html)
 
-# Demo .apk
-you may like to see the ANE in action? [Download demo .apk](https://github.com/myflashlab/videoPlayer-ANE/tree/master/FD/dist)
-
-**NOTICE**: the demo ANE works only after you hit the "OK" button in the dialog which opens. in your tests make sure that you are NOT calling other ANE methods prior to hitting the "OK" button.
-[Download the ANE](https://github.com/myflashlab/videoPlayer-ANE/tree/master/FD/lib)
+[Download demo ANE](https://github.com/myflashlab/videoPlayer-ANE/tree/master/AIR/lib)
 
 # AIR Usage
-For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/videoPlayer-ANE/blob/master/FD/src/MainFinal.as).
+For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/videoPlayer-ANE/blob/masterAIR/src/MainFinal.as).
 
 ```actionscript
 import com.myflashlab.air.extensions.player.VideoPlayer;
@@ -95,6 +91,9 @@ http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
 
 # Changelog
+*Dec 15, 2017 - V3.0.3*
+* optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
+
 *Mar 30, 2017 - V3.0.1*
 * Updated the ANE with the latest version overrideAir. Even if you are building for iOS, you need to include this dependency.
 * Min iOS version to support this ANE is 8.0 from now on.
