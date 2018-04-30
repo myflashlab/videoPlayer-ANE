@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<application xmlns="http://ns.adobe.com/air/application/24.0">
+<application xmlns="http://ns.adobe.com/air/application/29.0">
     <id>com.doitflash.exVideoPlayer</id>
-    <versionNumber>3.0.2</versionNumber>
+    <versionNumber>3.1.0</versionNumber>
     <supportedProfiles>mobileDevice</supportedProfiles>
     <filename>exVideoPlayer</filename>
     <name>Video Player</name>

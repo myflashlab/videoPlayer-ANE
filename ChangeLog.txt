@@ -1,5 +1,9 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Apr 30, 2018 - V3.1.0*
+* Updated core video player in iOS side to make sure it works with latest iOS versions also.
+* Added listener ```VideoPlayerEvent.DISMISSED``` to know when the player is dismissed on the **iOS side**.
+
 *Dec 15, 2017 - V3.0.3*
 * optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
 

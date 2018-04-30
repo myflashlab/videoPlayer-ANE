@@ -1,4 +1,4 @@
-# Video Player ANE V3.0.3 (Android+iOS)
+# Video Player ANE V3.1.0 (Android+iOS)
 video player ANE supported on Android and iOS 64-bit lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
 
 # asdoc
@@ -10,19 +10,18 @@ video player ANE supported on Android and iOS 64-bit lets you play video files i
 For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/videoPlayer-ANE/blob/masterAIR/src/MainFinal.as).
 
 ```actionscript
-import com.myflashlab.air.extensions.player.VideoPlayer;
-import com.myflashlab.air.extensions.player.VideoType;
+import com.myflashlab.air.extensions.player.*;
 
 var _ex:VideoPlayer = new VideoPlayer();
 
 // play from documentsDirectory
 var vid:File = File.documentsDirectory.resolvePath("exVideoPlayer.mp4");
-_ex.play(vid.nativePath, VideoType.ON_SD_CARD); // in demo ANE, this method works only if you have hit the "ok" button in the demo dialog.
+_ex.play(vid.nativePath, VideoType.LOCAL);
 
 // or play online
-_ex.play("http://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4", VideoType.ON_LINE);
+_ex.play("https://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4", VideoType.ONLINE);
 
-// you can also play YouTube videos! please see the sample usage code for YouTube in the sample FlashDevelop project
+// you can also play YouTube videos! please see the sample usage code for YouTube in the sample project
 ```
 
 # AIR .xml manifest
@@ -91,6 +90,10 @@ http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
 
 # Changelog
+*Apr 30, 2018 - V3.1.0*
+* Updated core video player in iOS side to make sure it works with latest iOS versions also.
+* Added listener ```VideoPlayerEvent.DISMISSED``` to know when the player is dismissed on the **iOS side**.
+
 *Dec 15, 2017 - V3.0.3*
 * optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
 

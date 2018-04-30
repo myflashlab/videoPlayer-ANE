@@ -1,6 +1,9 @@
 package 
 {
-	import flash.desktop.NativeApplication;
+import com.myflashlab.air.extensions.dependency.OverrideAir;
+import com.myflashlab.air.extensions.player.VideoPlayerEvent;
+
+import flash.desktop.NativeApplication;
 	import flash.desktop.SystemIdleMode;
 	import flash.display.BitmapData;
 	import flash.display.Sprite;
@@ -40,8 +43,10 @@ package
 	import com.doitflash.remote.youtube.VideoQuality;
 	
 	import com.luaye.console.C;
-	
-	/**
+
+import flash.utils.setTimeout;
+
+/**
 	 * ...
 	 * @author Hadi Tavakoli - 11/4/2014 3:01 PM
 	 */
@@ -175,25 +180,50 @@ package
 			}
 		}
 		
+		private function myDebuggerDelegate($ane:String, $class:String, $msg:String):void
+		{
+			trace("\t\t" + $ane + ": " + $msg);
+		}
+		
 		private function init():void
 		{
+			// remove this line in production build or pass null as the delegate
+			OverrideAir.enableDebugger(myDebuggerDelegate);
+			
 			// initialize the extension
 			_ex = new VideoPlayer();
 			
-			// copy test video to sdcard
+			/*
+				The following listener works on iOS only.
+				
+				On Android, the ANE will check available players on your device and lets you play your content
+				on each one you like. This means another third-party app will take care of playing your video.
+				It is your job to check when your app gets activated when users cancels the video playback on
+				the other app. You can do this with "Event.ACTIVATE" listener.
+				
+				On iOS, we are using the built-in AVPlayer class which means the video plays inside your app.
+				Because of this, unlike Android, you will not receive any Event.ACTIVATE event simply because
+				you have not left the app to begin with. To fix this problem on iOS, we will do this on the ANE
+				side and as soon as the video player is dismissed, you will receive the event via the following
+				listener: VideoPlayerEvent.DISMISSED
+			*/
+			if(_ex.os == VideoPlayer.IOS) _ex.addEventListener(VideoPlayerEvent.DISMISSED, onDismissed);
+			
+			// copy test video to File.documentsDirectory
 			var src:File = File.applicationDirectory.resolvePath("movie01.mp4");
 			var dis:File = File.documentsDirectory.resolvePath("exVideoPlayer.mp4");
 			if(!dis.exists) src.copyTo(dis);
 			
 			// ----------------------
-			var btn1:MySprite = createBtn("play on sdcard");
-			btn1.addEventListener(MouseEvent.CLICK, toPlayVideoIntentOnSdcard);
+			var btn1:MySprite = createBtn("play on File.documentsDirectory");
+			btn1.addEventListener(MouseEvent.CLICK, playVideoOnDocumentsDirectory);
 			_list.add(btn1);
 			
-			function toPlayVideoIntentOnSdcard(e:MouseEvent):void
+			function playVideoOnDocumentsDirectory(e:MouseEvent):void
 			{
+				trace(dis.nativePath);
 				var address:String = dis.nativePath;
-				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.ON_SD_CARD);
+				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.LOCAL);
 			}
 			
 			// ----------------------
@@ -204,7 +234,7 @@ package
 			function toPlayVideoIntentOnline(e:MouseEvent):void
 			{
 				var address:String = "http://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4";
-				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.ON_LINE);
+				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.ONLINE);
 			}
 			// ----------------------
 			
@@ -265,7 +295,7 @@ package
 				//_ytParser.addEventListener(YouTubeLinkParserEvent.VIDEO_HEADER_ERROR, onHeadersError);
 				//_ytParser.getHeaders(chosenVideo);
 				
-				_ex.play(chosenVideo, com.myflashlab.air.extensions.player.VideoType.ON_LINE);
+				_ex.play(chosenVideo, com.myflashlab.air.extensions.player.VideoType.ONLINE);
 			}
 			
 			// ----------------------
@@ -286,7 +316,10 @@ package
 			onResize();
 		}
 		
-		
+		private function onDismissed(e:VideoPlayerEvent):void
+		{
+			trace("iOS video library dismissed!");
+		}
 		
 		
 		
