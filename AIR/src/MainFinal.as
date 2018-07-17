@@ -1,9 +1,9 @@
 package 
 {
-import com.myflashlab.air.extensions.dependency.OverrideAir;
-import com.myflashlab.air.extensions.player.VideoPlayerEvent;
+	import com.myflashlab.air.extensions.dependency.OverrideAir;
+	import com.myflashlab.air.extensions.player.VideoPlayerEvent;
 
-import flash.desktop.NativeApplication;
+	import flash.desktop.NativeApplication;
 	import flash.desktop.SystemIdleMode;
 	import flash.display.BitmapData;
 	import flash.display.Sprite;
@@ -11,10 +11,7 @@ import flash.desktop.NativeApplication;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
-	import flash.events.StageOrientationEvent;
-	import flash.events.StatusEvent;
 	import flash.text.AntiAliasType;
-	import flash.text.AutoCapitalize;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
@@ -27,7 +24,6 @@ import flash.desktop.NativeApplication;
 	import flash.filesystem.File;
 	import flash.net.URLVariables;
 	
-	import com.myflashlab.air.extensions.nativePermissions.PermissionCheck;
 	import com.myflashlab.air.extensions.player.VideoPlayer;
 	import com.myflashlab.air.extensions.player.VideoType;
 	import com.doitflash.text.modules.MySprite;
@@ -53,7 +49,6 @@ import flash.utils.setTimeout;
 	public class MainFinal extends Sprite 
 	{
 		private var _ex:VideoPlayer;
-		private var _exPermissions:PermissionCheck = new PermissionCheck();
 		private var _ytParser:YouTubeLinkParser;
 		
 		private const BTN_WIDTH:Number = 150;
@@ -106,7 +101,7 @@ import flash.utils.setTimeout;
 			_list.vDirection = Direction.TOP_TO_BOTTOM;
 			_list.space = BTN_SPACE;
 			
-			checkPermissions();
+			init();
 		}
 		
 		private function onInvoke(e:InvokeEvent):void
@@ -153,33 +148,6 @@ import flash.utils.setTimeout;
 			}
 		}
 		
-		private function checkPermissions():void
-		{
-			// first you need to make sure you have access to the Strorage if you are on Android?
-			var permissionState:int = _exPermissions.check(PermissionCheck.SOURCE_STORAGE);
-			
-			if (permissionState == PermissionCheck.PERMISSION_UNKNOWN || permissionState == PermissionCheck.PERMISSION_DENIED)
-			{
-				_exPermissions.request(PermissionCheck.SOURCE_STORAGE, onRequestResult);
-			}
-			else
-			{
-				init();
-			}
-			
-			function onRequestResult($state:int):void
-			{
-				if ($state != PermissionCheck.PERMISSION_GRANTED)
-				{
-					C.log("You did not allow the app the required permissions!");
-				}
-				else
-				{
-					init();
-				}
-			}
-		}
-		
 		private function myDebuggerDelegate($ane:String, $class:String, $msg:String):void
 		{
 			trace("\t\t" + $ane + ": " + $msg);
@@ -209,21 +177,20 @@ import flash.utils.setTimeout;
 			*/
 			if(_ex.os == VideoPlayer.IOS) _ex.addEventListener(VideoPlayerEvent.DISMISSED, onDismissed);
 			
-			// copy test video to File.documentsDirectory
+			// on Android, local videos must be in File.cacheDirectory. on iOS, they can be anywhere.
 			var src:File = File.applicationDirectory.resolvePath("movie01.mp4");
-			var dis:File = File.documentsDirectory.resolvePath("exVideoPlayer.mp4");
+			var dis:File = File.cacheDirectory.resolvePath("exVideoPlayer.mp4");
 			if(!dis.exists) src.copyTo(dis);
 			
 			// ----------------------
-			var btn1:MySprite = createBtn("play on File.documentsDirectory");
-			btn1.addEventListener(MouseEvent.CLICK, playVideoOnDocumentsDirectory);
+			var btn1:MySprite = createBtn("play on File.cacheDirectory");
+			btn1.addEventListener(MouseEvent.CLICK, playVideoOnCacheDirectory);
 			_list.add(btn1);
 			
-			function playVideoOnDocumentsDirectory(e:MouseEvent):void
+			function playVideoOnCacheDirectory(e:MouseEvent):void
 			{
 				trace(dis.nativePath);
-				var address:String = dis.nativePath;
-				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.LOCAL);
+				_ex.play(dis.nativePath, com.myflashlab.air.extensions.player.VideoType.LOCAL);
 			}
 			
 			// ----------------------
@@ -233,7 +200,7 @@ import flash.utils.setTimeout;
 			
 			function toPlayVideoIntentOnline(e:MouseEvent):void
 			{
-				var address:String = "http://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4";
+				var address:String = "https://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4";
 				_ex.play(address, com.myflashlab.air.extensions.player.VideoType.ONLINE);
 			}
 			// ----------------------
