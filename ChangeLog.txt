@@ -1,5 +1,25 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Jul 17, 2018 - V3.2.0*
+* On Android, supporting targetSdkVersion is now 26 like below. Lower versions work also but you are recommended to use V26
+```xml
+<uses-sdk android:targetSdkVersion="26"/>
+```
+* The [permission ANE](https://github.com/myflashlab/PermissionCheck-ANE/) is no longer requierd and you no longer need to ask for external access. **Remove** the following tag from your manifest: ```<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>```
+* On Android, video files must be copied to ```File.cacheDirectory``` from now on. make sure you are updating your AS3 code.
+* On Android, you must add the following ```<provider>``` tag under the ```<application>``` tag.
+```xml
+        <provider
+            android:name="com.myflashlabs.videoPlayer.AneVideoProvider"
+            android:authorities="[YOUR_PACKAGE_ID].provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/video_player_ane_provider_paths"/>
+        </provider>
+```
+
 *Apr 30, 2018 - V3.1.0*
 * Updated core video player in iOS side to make sure it works with latest iOS versions also.
 * Added listener ```VideoPlayerEvent.DISMISSED``` to know when the player is dismissed on the **iOS side**.

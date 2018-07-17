@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<application xmlns="http://ns.adobe.com/air/application/29.0">
+<application xmlns="http://ns.adobe.com/air/application/30.0">
     <id>com.doitflash.exVideoPlayer</id>
-    <versionNumber>3.1.0</versionNumber>
+    <versionNumber>3.2.0</versionNumber>
     <supportedProfiles>mobileDevice</supportedProfiles>
     <filename>exVideoPlayer</filename>
     <name>Video Player</name>
@@ -15,13 +15,11 @@
 	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-	<!--The new Permission thing on Android works ONLY if you are targetting Android SDK 23 or higher-->
-	<uses-sdk android:targetSdkVersion="23"/>
+	<uses-sdk android:targetSdkVersion="26"/>
 
 	<application>
 
-
-		<activity>
+        <activity>
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -32,6 +30,20 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+
+		<!--
+            Change "air.com.doitflash.exVideoPlayer" to your own applicationID but keep
+            ".provider" at the end. [your-app-id].provider
+        -->
+        <provider
+            android:name="com.myflashlabs.videoPlayer.AneVideoProvider"
+            android:authorities="air.com.doitflash.exVideoPlayer.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/video_player_ane_provider_paths"/>
+        </provider>
 
 	</application>
 </manifest>]]></manifestAdditions>
@@ -106,8 +118,6 @@
     <extensions>
 
         <extensionID>com.myflashlab.air.extensions.videoPlayer</extensionID>
-
-        <extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
 
         <!-- download the dependency ANEs from https://github.com/myflashlab/common-dependencies-ANE -->
         <extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>

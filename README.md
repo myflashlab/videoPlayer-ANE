@@ -1,5 +1,5 @@
-# Video Player ANE V3.1.0 (Android+iOS)
-video player ANE supported on Android and iOS 64-bit lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
+# Video Player ANE V3.2.0 (Android+iOS)
+video player ANE supported on Android and iOS, lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
 
 # asdoc
 [find the latest asdoc for this ANE here.](http://myflashlab.github.io/asdoc/com/myflashlab/air/extensions/player/package-detail.html)
@@ -7,15 +7,15 @@ video player ANE supported on Android and iOS 64-bit lets you play video files i
 [Download demo ANE](https://github.com/myflashlab/videoPlayer-ANE/tree/master/AIR/lib)
 
 # AIR Usage
-For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/videoPlayer-ANE/blob/masterAIR/src/MainFinal.as).
+For the complete AS3 code usage, see the [demo project here](https://github.com/myflashlab/videoPlayer-ANE/blob/master/AIR/src/MainFinal.as).
 
 ```actionscript
 import com.myflashlab.air.extensions.player.*;
 
 var _ex:VideoPlayer = new VideoPlayer();
 
-// play from documentsDirectory
-var vid:File = File.documentsDirectory.resolvePath("exVideoPlayer.mp4");
+// on Android, local videos must be in File.cacheDirectory. on iOS, they can be anywhere.
+var vid:File = File.cacheDirectory.resolvePath("exVideoPlayer.mp4");
 _ex.play(vid.nativePath, VideoType.LOCAL);
 
 // or play online
@@ -29,18 +29,43 @@ _ex.play("https://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4
 <!--
 FOR ANDROID:
 -->
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		<uses-sdk android:targetSdkVersion="26"/>
+		
+		<application>
+			<!--
+				Change [your-app-id] to your own applicationID but keep
+				".provider" at the end. [your-app-id].provider
+			-->
+			<provider
+				android:name="com.myflashlabs.videoPlayer.AneVideoProvider"
+				android:authorities="[your-app-id].provider"
+				android:exported="false"
+				android:grantUriPermissions="true">
+				<meta-data
+					android:name="android.support.FILE_PROVIDER_PATHS"
+					android:resource="@xml/video_player_ane_provider_paths"/>
+			</provider>
 
-		<!--The new Permission thing on Android works ONLY if you are targetting Android SDK 23 or higher-->
-		<uses-sdk android:targetSdkVersion="23"/>
-		
-		
+
+			<activity>
+				<intent-filter>
+					<action android:name="android.intent.action.MAIN" />
+					<category android:name="android.intent.category.LAUNCHER" />
+				</intent-filter>
+				<intent-filter>
+					<action android:name="android.intent.action.VIEW" />
+					<category android:name="android.intent.category.BROWSABLE" />
+					<category android:name="android.intent.category.DEFAULT" />
+				</intent-filter>
+			</activity>
+			
+		</application>
 
 		
 <!--
 FOR iOS:
 -->
-		<!-- Reqiered if you are trying to load an online video with 'http' address -->
+		<!-- Reqiered only if you are trying to load an online video with 'http' address -->
 		<key>NSAppTransportSecurity</key>
 		<dict>
 			<key>NSAllowsArbitraryLoads</key>
@@ -55,9 +80,6 @@ Embedding the ANE:
 <extensions>
 	<extensionID>com.myflashlab.air.extensions.videoPlayer</extensionID>
 	
-	<!-- Required if you are targeting AIR 24+ and have to take care of Permissions mannually -->
-	<extensionID>com.myflashlab.air.extensions.permissionCheck</extensionID>
-	
 	<!-- The following dependency ANEs are only required when compiling for Android -->
 	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
 	<extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
@@ -68,6 +90,7 @@ Embedding the ANE:
 * This ANE is dependent on **androidSupport.ane** and **overrideAir.ane**. Download them from [here](https://github.com/myflashlab/common-dependencies-ANE).
 * Android SDK 15 or higher
 * iOS 8.0 or higher
+* AIR SDK 29+
 
 # Permissions
 If you are targeting AIR 24 or higher, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
@@ -78,18 +101,37 @@ Check out the demo project available at this repository to see how we have used 
 none
 
 **Optional Permissions:**  
-
-1. PermissionCheck.SOURCE_STORAGE
+none
 
 # Commercial Version
 http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
 
-![Video Player ANE](http://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-video-player-595x738.jpg)
+![Video Player ANE](https://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-video-player-595x738.jpg)
 
 # Tutorials
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
 
 # Changelog
+*Jul 17, 2018 - V3.2.0*
+* On Android, supporting targetSdkVersion is now 26 like below. Lower versions work also but you are recommended to use V26
+```xml
+<uses-sdk android:targetSdkVersion="26"/>
+```
+* The [permission ANE](https://github.com/myflashlab/PermissionCheck-ANE/) is no longer requierd and you no longer need to ask for external access. **Remove** the following tag from your manifest: ```<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>```
+* On Android, video files must be copied to ```File.cacheDirectory``` from now on. make sure you are updating your AS3 code.
+* On Android, you must add the following ```<provider>``` tag under the ```<application>``` tag.
+```xml
+        <provider
+            android:name="com.myflashlabs.videoPlayer.AneVideoProvider"
+            android:authorities="[YOUR_PACKAGE_ID].provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/video_player_ane_provider_paths"/>
+        </provider>
+```
+
 *Apr 30, 2018 - V3.1.0*
 * Updated core video player in iOS side to make sure it works with latest iOS versions also.
 * Added listener ```VideoPlayerEvent.DISMISSED``` to know when the player is dismissed on the **iOS side**.
