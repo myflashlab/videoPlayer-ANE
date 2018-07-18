@@ -1,4 +1,4 @@
-# Video Player ANE V3.2.0 (Android+iOS)
+# Video Player ANE V3.2.1 (Android+iOS)
 video player ANE supported on Android and iOS, lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
 
 # asdoc
@@ -112,6 +112,9 @@ http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
 
 # Changelog
+*Jul 18, 2018 - V3.2.1*
+* Removed the PermissionCheck ANE prerequisite from setup manifest used by [ANELAB sofwate](https://github.com/myflashlab/ANE-LAB/)
+
 *Jul 17, 2018 - V3.2.0*
 * On Android, supporting targetSdkVersion is now 26 like below. Lower versions work also but you are recommended to use V26
 ```xml

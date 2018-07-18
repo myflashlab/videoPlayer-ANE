@@ -1,5 +1,8 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Jul 18, 2018 - V3.2.1*
+* Removed the PermissionCheck ANE prerequisite from setup manifest used by [ANELAB sofwate](https://github.com/myflashlab/ANE-LAB/)
+
 *Jul 17, 2018 - V3.2.0*
 * On Android, supporting targetSdkVersion is now 26 like below. Lower versions work also but you are recommended to use V26
 ```xml
