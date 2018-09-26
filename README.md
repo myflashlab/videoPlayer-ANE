@@ -1,4 +1,4 @@
-# Video Player ANE V3.2.1 (Android+iOS)
+# Video Player ANE V3.2.2 (Android+iOS)
 video player ANE supported on Android and iOS, lets you play video files in android or iOS players. your videos can be locally availble on your device or they can be online. in the sample codes we have also used our YouTube link parser found here: https://github.com/myflashlab/AS3-youtube-parser-video-link/ and with that you can easily play YouTube videos too.
 
 # asdoc
@@ -65,12 +65,12 @@ FOR ANDROID:
 <!--
 FOR iOS:
 -->
-		<!-- Reqiered only if you are trying to load an online video with 'http' address -->
-		<key>NSAppTransportSecurity</key>
-		<dict>
-			<key>NSAllowsArbitraryLoads</key>
-			<true/>
-		</dict>
+	<!-- Reqiered only if you are trying to load an online video with 'http' address -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 
 
 
@@ -79,29 +79,18 @@ Embedding the ANE:
 -->
 <extensions>
 	<extensionID>com.myflashlab.air.extensions.videoPlayer</extensionID>
-	
-	<!-- The following dependency ANEs are only required when compiling for Android -->
-	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport</extensionID>
+
+	<!-- dependency ANEs -->
+	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport.core</extensionID>
+	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport.v4</extensionID>
 	<extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
-  </extensions>
+</extensions>
 ```
 
 # Requirements
-* This ANE is dependent on **androidSupport.ane** and **overrideAir.ane**. Download them from [here](https://github.com/myflashlab/common-dependencies-ANE).
-* Android SDK 15 or higher
-* iOS 8.0 or higher
-* AIR SDK 29+
-
-# Permissions
-If you are targeting AIR 24 or higher, you need to [take care of the permissions mannually](http://www.myflashlabs.com/adobe-air-app-permissions-android-ios/). Below are the list of Permissions this ANE might require. (Note: *Necessary Permissions* are those that the ANE will NOT work without them and *Optional Permissions* are those which are needed only if you are using some specific features in the ANE.)
-
-Check out the demo project available at this repository to see how we have used our [PermissionCheck ANE](http://www.myflashlabs.com/product/native-access-permission-check-settings-menu-air-native-extension/) to ask for the permissions.
-
-**Necessary Permissions:**  
-none
-
-**Optional Permissions:**  
-none
+* Android SDK 15+
+* iOS 8.0+
+* AIR SDK 30+
 
 # Commercial Version
 http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
@@ -112,6 +101,9 @@ http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
 
 # Changelog
+*Sep 24, 2018 - V3.2.2*
+* Removed androidSupport dependency then added *androidSupport-core.ane* and *androidSupport-v4.ane*
+
 *Jul 18, 2018 - V3.2.1*
 * Removed the PermissionCheck ANE prerequisite from setup manifest used by [ANELAB sofwate](https://github.com/myflashlab/ANE-LAB/)
 

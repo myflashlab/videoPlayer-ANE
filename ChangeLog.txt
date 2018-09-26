@@ -1,5 +1,8 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Sep 24, 2018 - V3.2.2*
+* Removed androidSupport dependency then added *androidSupport-core.ane* and *androidSupport-v4.ane*
+
 *Jul 18, 2018 - V3.2.1*
 * Removed the PermissionCheck ANE prerequisite from setup manifest used by [ANELAB sofwate](https://github.com/myflashlab/ANE-LAB/)
 
