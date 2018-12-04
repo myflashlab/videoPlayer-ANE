@@ -93,9 +93,9 @@ Embedding the ANE:
 * AIR SDK 30+
 
 # Commercial Version
-http://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
+https://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/
 
-![Video Player ANE](https://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-video-player-595x738.jpg)
+[![Video Player ANE](https://www.myflashlabs.com/wp-content/uploads/2015/11/product_adobe-air-ane-extension-video-player-2018-595x738.jpg)](https://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/)
 
 # Tutorials
 [How to embed ANEs into **FlashBuilder**, **FlashCC** and **FlashDevelop**](https://www.youtube.com/watch?v=Oubsb_3F3ec&list=PL_mmSjScdnxnSDTMYb1iDX4LemhIJrt1O)  
