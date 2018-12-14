@@ -148,15 +148,13 @@ import flash.utils.setTimeout;
 			}
 		}
 		
-		private function myDebuggerDelegate($ane:String, $class:String, $msg:String):void
-		{
-			trace("\t\t" + $ane + ": " + $msg);
-		}
-		
 		private function init():void
 		{
-			// remove this line in production build or pass null as the delegate
-			OverrideAir.enableDebugger(myDebuggerDelegate);
+			// Remove OverrideAir debugger in production builds
+			OverrideAir.enableDebugger(function ($ane:String, $class:String, $msg:String):void
+			{
+				trace($ane+" ("+$class+") "+$msg);
+			});
 			
 			// initialize the extension
 			_ex = new VideoPlayer();
@@ -175,7 +173,7 @@ import flash.utils.setTimeout;
 				side and as soon as the video player is dismissed, you will receive the event via the following
 				listener: VideoPlayerEvent.DISMISSED
 			*/
-			if(_ex.os == VideoPlayer.IOS) _ex.addEventListener(VideoPlayerEvent.DISMISSED, onDismissed);
+			if(OverrideAir.os == OverrideAir.IOS) _ex.addEventListener(VideoPlayerEvent.DISMISSED, onDismissed);
 			
 			// on Android, local videos must be in File.cacheDirectory. on iOS, they can be anywhere.
 			var src:File = File.applicationDirectory.resolvePath("movie01.mp4");
