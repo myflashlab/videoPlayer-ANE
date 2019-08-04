@@ -26,7 +26,7 @@ _ex.play("https://myflashlabs.com/showcase/Bully_Scholarship_Edition_Trailer.mp4
 <!--
 FOR ANDROID:
 -->
-		<uses-sdk android:targetSdkVersion="26"/>
+		<uses-sdk android:targetSdkVersion="28"/>
 		
 		<application>
 			<!--
@@ -86,7 +86,7 @@ Embedding the ANE:
 
 # Requirements
 * Android SDK 15+
-* iOS 8.0+
+* iOS 10.0+
 * AIR SDK 30+
 
 # Commercial Version

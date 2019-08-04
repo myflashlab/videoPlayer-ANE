@@ -1,5 +1,9 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Aug 4, 2019 - V3.2.41*
+* Added Android 64-bit support
+* Supports iOS 10+
+
 *Nov 18, 2018 - V3.2.3*
 * Works with OverrideAir ANE V5.6.1 or higher
 * Works with ANELAB V1.1.26 or higher
