@@ -1,5 +1,8 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
+*Dec 31, 2019 - V4.0.0*
+- Add androidx dependencies instead of android support 
+
 *Aug 4, 2019 - V3.2.41*
 * Added Android 64-bit support
 * Supports iOS 10+
@@ -19,9 +22,9 @@ Video Player Adobe Air Native Extension (Android + iOS)
 ```xml
 <uses-sdk android:targetSdkVersion="26"/>
 ```
-* The [permission ANE](https://github.com/myflashlab/PermissionCheck-ANE/) is no longer requierd and you no longer need to ask for external access. **Remove** the following tag from your manifest: ```<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>```
-* On Android, video files must be copied to ```File.cacheDirectory``` from now on. make sure you are updating your AS3 code.
-* On Android, you must add the following ```<provider>``` tag under the ```<application>``` tag.
+* The [permission ANE](https://github.com/myflashlab/PermissionCheck-ANE/) is no longer requierd and you no longer need to ask for external access. **Remove** the following tag from your manifest: `<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>`
+* On Android, video files must be copied to `File.cacheDirectory` from now on. make sure you are updating your AS3 code.
+* On Android, you must add the following `<provider>` tag under the `<application>` tag.
 ```xml
         <provider
             android:name="com.myflashlabs.videoPlayer.AneVideoProvider"
@@ -36,7 +39,7 @@ Video Player Adobe Air Native Extension (Android + iOS)
 
 *Apr 30, 2018 - V3.1.0*
 * Updated core video player in iOS side to make sure it works with latest iOS versions also.
-* Added listener ```VideoPlayerEvent.DISMISSED``` to know when the player is dismissed on the **iOS side**.
+* Added listener `VideoPlayerEvent.DISMISSED` to know when the player is dismissed on the **iOS side**.
 
 *Dec 15, 2017 - V3.0.3*
 * optimized for [ANE-LAB sofwate](https://github.com/myflashlab/ANE-LAB).
@@ -44,7 +47,7 @@ Video Player Adobe Air Native Extension (Android + iOS)
 *Mar 30, 2017 - V3.0.1*
 * Updated the ANE with the latest version overrideAir. Even if you are building for iOS, you need to include this dependency.
 * Min iOS version to support this ANE is 8.0 from now on.
-* Include ```NSAppTransportSecurity``` in the manifest if you are trying to play videos on **http** addresses on the iOS side.
+* Include `NSAppTransportSecurity` in the manifest if you are trying to play videos on **http** addresses on the iOS side.
 
 *Nov 08, 2016 - V3.0.0*
 * Optimized for Android manual permissions if you are targeting AIR SDK 24+
