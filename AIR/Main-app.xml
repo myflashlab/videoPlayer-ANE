@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/32.0">
     <id>com.doitflash.exVideoPlayer</id>
-    <versionNumber>3.2.41</versionNumber>
+    <versionNumber>4.0.0</versionNumber>
     <supportedProfiles>mobileDevice</supportedProfiles>
     <filename>exVideoPlayer</filename>
     <name>Video Player</name>
@@ -104,8 +104,8 @@
         <extensionID>com.myflashlab.air.extensions.videoPlayer</extensionID>
 
         <!-- dependency ANEs https://github.com/myflashlab/common-dependencies-ANE -->
-        <extensionID>com.myflashlab.air.extensions.dependency.androidSupport.core</extensionID>
-        <extensionID>com.myflashlab.air.extensions.dependency.androidSupport.v4</extensionID>
+        <extensionID>com.myflashlab.air.extensions.dependency.androidx.core</extensionID>
+        <extensionID>com.myflashlab.air.extensions.dependency.androidx.lifecycle</extensionID>
         <extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
 
     </extensions>
