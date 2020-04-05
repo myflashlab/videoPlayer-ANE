@@ -30,12 +30,11 @@ FOR ANDROID:
 		
 		<application>
 			<!--
-				Change [your-app-id] to your own applicationID but keep
-				".provider" at the end. [your-app-id].provider
+				Change {PACKAGE_NAME} to your own applicationID
 			-->
 			<provider
 				android:name="com.myflashlabs.videoPlayer.AneVideoProvider"
-				android:authorities="[your-app-id].provider"
+				android:authorities="{PACKAGE_NAME}.provider"
 				android:exported="false"
 				android:grantUriPermissions="true">
 				<meta-data
@@ -78,16 +77,16 @@ Embedding the ANE:
 	<extensionID>com.myflashlab.air.extensions.videoPlayer</extensionID>
 
 	<!-- dependency ANEs -->
-	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport.core</extensionID>
-	<extensionID>com.myflashlab.air.extensions.dependency.androidSupport.v4</extensionID>
+	<extensionID>com.myflashlab.air.extensions.dependency.androidx.core</extensionID>
+    <extensionID>com.myflashlab.air.extensions.dependency.androidx.lifecycle</extensionID>
 	<extensionID>com.myflashlab.air.extensions.dependency.overrideAir</extensionID>
 </extensions>
 ```
 
 # Requirements
-* Android SDK 15+
+* Android SDK 19+
 * iOS 10.0+
-* AIR SDK 30+
+* AIR SDK 33+
 
 # Commercial Version
 https://www.myflashlabs.com/product/video-player-ane-adobe-air-native-extension/

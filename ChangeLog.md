@@ -1,7 +1,7 @@
 Video Player Adobe Air Native Extension (Android + iOS)
 
-*Dec 31, 2019 - V4.0.0*
-- Add androidx dependencies instead of android support 
+*Apr 05, 2020 - V4.0.0*
+- Added androidx dependencies instead of android support 
 
 *Aug 4, 2019 - V3.2.41*
 * Added Android 64-bit support

@@ -67,6 +67,9 @@
 			<true/>
 		</dict>
 
+		<key>UILaunchStoryboardName</key>
+		<string>LaunchScreen</string>
+
 		<key>UIDeviceFamily</key>
 		<array>
 			<!-- iPhone support -->
